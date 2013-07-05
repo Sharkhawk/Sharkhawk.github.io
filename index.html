@@ -56,14 +56,14 @@
 		updatetextfield(xVal,yVal,zVal)
 		
 		if (Math.abs(xVal)<1 && Math.abs(yVal)<1 && Math.abs(zVal)<1) {
-			laststate == "white"
+			laststate = "white"
 			document.body.style.backgroundColor = "blue"
 			t0 = new Date()
 			updatetimefield(t0.getTime())
 			updateheightfield(9.81*0.125*(t0.getTime())*(t0.getTime())/1000000)
 			
-		} else {
-			laststate == "blue"
+		} else if (laststate == "white"){
+			laststate = "white"
 			document.body.style.backgroundColor = "white"
 			updatetimefield(-t1.getTime()+t0.getTime())
 			updateheightfield((-t1.getTime()+t0.getTime())*(-t1.getTime()+t0.getTime())*9.81*0.125/1000000)	
